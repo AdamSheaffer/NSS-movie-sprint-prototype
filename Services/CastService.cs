@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.Linq;
 using MovieSprint.Helpers;
 using MovieSprint.Models;
@@ -27,6 +28,10 @@ namespace MovieSprint.Services
                 case 1:
                     Console.Clear();
                     HireCastMember(movie);
+                    break;
+                case 2:
+                    Console.Clear();
+                    FireCastMember(movie);
                     break;
                 default:
                     Console.Clear();
@@ -83,6 +88,25 @@ namespace MovieSprint.Services
                 Console.WriteLine("Invalid dollar input");
                 HireCastMember(movie);
             }
+        }
+
+        private static void FireCastMember(Movie movie)
+        {
+            IEnumerable<string> options = movie.Cast.Select(cm => cm.Name);
+
+            int selectionIndex = MenuHelper.GetMenuSelection(options, true);
+
+            bool goBack = selectionIndex == options.Count(); // Last option
+
+            if (goBack)
+            {
+                Console.Clear();
+                return;
+            }
+
+            movie.Cast.RemoveAt(selectionIndex);
+
+            Console.Clear();
         }
     }
 }
