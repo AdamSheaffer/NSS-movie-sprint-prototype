@@ -44,6 +44,10 @@ namespace MovieSprint
                         Console.Clear();
                         ProducerService.AddProducer(movie);
                         break;
+                    case 5:
+                        Console.Clear();
+                        ReportService.ShowReport(movie);
+                        break;
                     case 6:
                         return;
                     default:

@@ -15,7 +15,7 @@ namespace MovieSprint.Data
                 new CastMember
                 {
                     Name = "Keanu Reeves",
-                        Expense = 250_000
+                        Expense = 150_000
                 },
                 new CastMember
                 {
@@ -30,7 +30,7 @@ namespace MovieSprint.Data
                 new CastMember
                 {
                     Name = "Hugo Weaving",
-                        Expense = 80_000
+                        Expense = 60_000
                 },
                 new CastMember
                 {
@@ -40,7 +40,7 @@ namespace MovieSprint.Data
                 new CastMember
                 {
                     Name = "Joe Pantoliano",
-                        Expense = 80_000
+                        Expense = 60_000
                 },
                 new CastMember
                 {
@@ -50,12 +50,12 @@ namespace MovieSprint.Data
                 new CastMember
                 {
                     Name = "Julian Arahanga",
-                        Expense = 80_000
+                        Expense = 40_000
                 },
                 new CastMember
                 {
                     Name = "Belinda McClory",
-                        Expense = 80_000
+                        Expense = 40_000
                 },
                 new CastMember
                 {
@@ -77,17 +77,20 @@ namespace MovieSprint.Data
                 new CrewMember
                 {
                     Name = "Adam Sheaffer",
-                        Expense = 20_000
+                        Expense = 20_000,
+                        Title = "Camera Operator"
                 },
                 new CrewMember
                 {
                     Name = "Rose Wizotsky",
-                        Expense = 20_000
+                        Expense = 20_000,
+                        Title = "Lighting Operator"
                 },
                 new CrewMember
                 {
                     Name = "Brenda Long",
-                        Expense = 20_000
+                        Expense = 20_000,
+                        Title = "Camera Operator"
                 }
             };
         }
