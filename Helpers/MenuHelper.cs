@@ -1,6 +1,6 @@
 using System;
 
-namespace MovieSprint
+namespace MovieSprint.Helpers
 {
     public static class MenuHelper
     {

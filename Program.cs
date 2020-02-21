@@ -1,5 +1,7 @@
 ﻿using System;
+using MovieSprint.Helpers;
 using MovieSprint.Models;
+using MovieSprint.Services;
 
 namespace MovieSprint
 {
@@ -10,28 +12,43 @@ namespace MovieSprint
             Console.Clear();
             Movie movie = new Movie
             {
-                Title = "What's Hackening?"
+                Title = "Hack & Slash"
             };
 
-            PrintWelcome(movie);
+            while (true)
+            {
+                PrintWelcome(movie);
 
-            string[] mainMenuOptions = {
-                "Manage Cast",
-                "Manage Crew",
-                "Manage Locations",
-                "Schedule",
-                "Add Producer",
-                "Expense Report"
-            };
+                string[] mainMenuOptions = {
+                    "Manage Cast",
+                    "Manage Crew",
+                    "Manage Locations",
+                    "Schedule",
+                    "Add Producer",
+                    "Expense Report",
+                    "Exit"
+                };
 
-            int selection = MenuHelper.GetMenuSelection(mainMenuOptions);
+                int selectionIndex = MenuHelper.GetMenuSelection(mainMenuOptions);
 
-            Console.WriteLine($"Selected {mainMenuOptions[selection]}");
+                switch (selectionIndex)
+                {
+                    case 0:
+                        Console.Clear();
+                        CastService.ShowCastMenu();
+                        break;
+                    case 6:
+                        return;
+                    default:
+                        break;
+                }
+            }
         }
 
         static void PrintWelcome(Movie movie)
         {
             Console.WriteLine(movie.Title);
+            Console.WriteLine();
         }
     }
 }
