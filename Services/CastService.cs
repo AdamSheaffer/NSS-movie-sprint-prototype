@@ -1,11 +1,13 @@
 using System;
+using System.Linq;
 using MovieSprint.Helpers;
+using MovieSprint.Models;
 
 namespace MovieSprint.Services
 {
     public static class CastService
     {
-        public static void ShowCastMenu()
+        public static void ShowCastMenu(Movie movie)
         {
             string[] castOptions = {
                 "Show Cast",
@@ -19,11 +21,67 @@ namespace MovieSprint.Services
             switch (selectionIndex)
             {
                 case 0:
-                    Console.WriteLine("Selected show cast");
+                    Console.Clear();
+                    ShowCast(movie);
+                    break;
+                case 1:
+                    Console.Clear();
+                    HireCastMember(movie);
                     break;
                 default:
                     Console.Clear();
                     break;
+            }
+        }
+
+        private static void ShowCast(Movie movie)
+        {
+            movie.Cast
+                .OrderByDescending(cm => cm.Expense)
+                .ToList()
+                .ForEach(cm => Console.WriteLine(cm.Name));
+
+            Console.WriteLine("\nPress <Enter> to return to main menu");
+            Console.ReadLine();
+            Console.Clear();
+        }
+
+        private static void HireCastMember(Movie movie)
+        {
+            Console.Write("Actor Name: ");
+            string name = Console.ReadLine();
+
+            Console.WriteLine();
+            Console.Write("Actor Cost: ");
+            string expenseInput = Console.ReadLine();
+
+            try
+            {
+                decimal expense = decimal.Parse(expenseInput);
+
+                CastMember newMember = new CastMember
+                {
+                    Name = name,
+                    Expense = expense
+                };
+
+                if (!movie.CanAfford(newMember))
+                {
+                    Console.Clear();
+                    Console.WriteLine($"Budget cannot afford {name}\n");
+                    return;
+                }
+
+                movie.Cast.Add(newMember);
+
+                Console.Clear();
+                Console.WriteLine($"{newMember.Name} has been added to cast\n");
+            }
+            catch (FormatException)
+            {
+                Console.Clear();
+                Console.WriteLine("Invalid dollar input");
+                HireCastMember(movie);
             }
         }
     }

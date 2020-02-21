@@ -1,5 +1,7 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
+using MovieSprint.Interfaces;
 
 namespace MovieSprint.Models
 {
@@ -10,9 +12,19 @@ namespace MovieSprint.Models
         public List<CrewMember> Crew { get; set; }
         public int Budget { get; set; } = 1_000_000;
 
-        public int CalculateExpenses()
+        public decimal CalculateExpenses()
         {
-            throw new NotImplementedException();
+            List<IExpenseItem> expenseItems = new List<IExpenseItem>();
+            expenseItems.AddRange(Cast);
+            expenseItems.AddRange(Crew);
+
+            return expenseItems.Sum(i => i.Expense);
+        }
+
+        public bool CanAfford(IExpenseItem item)
+        {
+            decimal totalExpenses = CalculateExpenses();
+            return (Budget - totalExpenses) > item.Expense;
         }
     }
 }

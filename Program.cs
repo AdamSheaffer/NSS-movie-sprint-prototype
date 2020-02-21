@@ -1,4 +1,5 @@
 ﻿using System;
+using MovieSprint.Data;
 using MovieSprint.Helpers;
 using MovieSprint.Models;
 using MovieSprint.Services;
@@ -12,7 +13,9 @@ namespace MovieSprint
             Console.Clear();
             Movie movie = new Movie
             {
-                Title = "Hack & Slash"
+                Title = "Hack & Slash",
+                Cast = MovieData.StartingCast(),
+                Crew = MovieData.StartingCrew(),
             };
 
             while (true)
@@ -35,7 +38,7 @@ namespace MovieSprint
                 {
                     case 0:
                         Console.Clear();
-                        CastService.ShowCastMenu();
+                        CastService.ShowCastMenu(movie);
                         break;
                     case 6:
                         return;
