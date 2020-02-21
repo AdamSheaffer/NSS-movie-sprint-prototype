@@ -46,7 +46,7 @@ namespace MovieSprint.Services
 
             while (true)
             {
-                pager.GetPage().ToList().ForEach(cm => Console.WriteLine(cm.Name));
+                pager.GetPage().ToList().ForEach(cm => Console.WriteLine($"{cm.Name} - {cm.Title}"));
 
                 Console.WriteLine(pager.Description);
                 Console.WriteLine("Press <p> to go to previous page, <n> to go to next page, or <Enter> to return to main menu");
