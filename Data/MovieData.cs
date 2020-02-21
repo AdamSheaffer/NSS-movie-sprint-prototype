@@ -27,6 +27,46 @@ namespace MovieSprint.Data
                     Name = "Carrie Ann Moss",
                         Expense = 150_000
                 },
+                new CastMember
+                {
+                    Name = "Hugo Weaving",
+                        Expense = 80_000
+                },
+                new CastMember
+                {
+                    Name = "Fiona Johnson",
+                        Expense = 10_000
+                },
+                new CastMember
+                {
+                    Name = "Joe Pantoliano",
+                        Expense = 80_000
+                },
+                new CastMember
+                {
+                    Name = "Anthony Ray Parker",
+                        Expense = 50_000
+                },
+                new CastMember
+                {
+                    Name = "Julian Arahanga",
+                        Expense = 80_000
+                },
+                new CastMember
+                {
+                    Name = "Belinda McClory",
+                        Expense = 80_000
+                },
+                new CastMember
+                {
+                    Name = "Robert Taylor",
+                        Expense = 10_000
+                },
+                new CastMember
+                {
+                    Name = "Ada Nicodemou",
+                        Expense = 5_000
+                },
             };
         }
 
