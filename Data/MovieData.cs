@@ -91,7 +91,25 @@ namespace MovieSprint.Data
                     Name = "Brenda Long",
                         Expense = 20_000,
                         Title = "Camera Operator"
-                }
+                },
+                new CrewMember
+                {
+                    Name = "Bobby Collins",
+                        Expense = 20_000,
+                        Title = "Camera Operator"
+                },
+                new CrewMember
+                {
+                    Name = "Madi Peper",
+                        Expense = 20_000,
+                        Title = "Lighting Operator"
+                },
+                new CrewMember
+                {
+                    Name = "Jisie David",
+                        Expense = 20_000,
+                        Title = "Camera Operator"
+                },
             };
         }
     }
