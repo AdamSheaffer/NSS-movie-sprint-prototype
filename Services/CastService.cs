@@ -33,6 +33,10 @@ namespace MovieSprint.Services
                     Console.Clear();
                     FireCastMember(movie);
                     break;
+                case 3:
+                    Console.Clear();
+                    SearchForCastMember(movie);
+                    break;
                 default:
                     Console.Clear();
                     break;
@@ -106,6 +110,24 @@ namespace MovieSprint.Services
 
             movie.Cast.RemoveAt(selectionIndex);
 
+            Console.Clear();
+        }
+
+        private static void SearchForCastMember(Movie movie)
+        {
+            Console.Write("Search Cast: ");
+            string q = Console.ReadLine();
+
+            movie.Cast
+                .Where(cm => cm.Name.ToLower().Contains(q.ToLower()))
+                .ToList()
+                .ForEach(cm =>
+                {
+                    Console.WriteLine($"{cm.Name}: {cm.Expense.ToString("C")}");
+                });
+
+            Console.WriteLine("\nPress <Enter> to return to main menu");
+            Console.ReadLine();
             Console.Clear();
         }
     }
