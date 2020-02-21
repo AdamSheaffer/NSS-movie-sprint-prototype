@@ -40,6 +40,10 @@ namespace MovieSprint
                         Console.Clear();
                         CastService.ShowCastMenu(movie);
                         break;
+                    case 1:
+                        Console.Clear();
+                        CrewService.ShowCrewMenu(movie);
+                        break;
                     case 4:
                         Console.Clear();
                         ProducerService.AddProducer(movie);
