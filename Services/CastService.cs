@@ -149,12 +149,23 @@ namespace MovieSprint.Services
                 .ToList()
                 .ForEach(cm =>
                 {
+                    List<ScheduleItem> schedule = GetCastMemberSchedule(movie, cm);
                     Console.WriteLine($"{cm.Name}: {cm.Expense.ToString("C")}");
+                    schedule.ForEach(si => Console.WriteLine(
+                        $"\t {si.StartDate.ToString("MMMM dd")} - {si.EndDate.ToString("MMMM dd")} at {si.FilmingLocation.Name}"
+                    ));
                 });
 
             Console.WriteLine("\nPress <Enter> to return to main menu");
             Console.ReadLine();
             Console.Clear();
+        }
+
+        private static List<ScheduleItem> GetCastMemberSchedule(Movie movie, CastMember castMember)
+        {
+            return movie.Shoots
+                .Where(shoot => shoot.Cast.Contains(castMember))
+                .ToList();
         }
     }
 }
