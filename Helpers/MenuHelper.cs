@@ -6,7 +6,7 @@ namespace MovieSprint.Helpers
 {
     public static class MenuHelper
     {
-        public static int GetMenuSelection(IEnumerable<string> options, bool canGoBack = false)
+        public static int GetMenuSelection(IEnumerable<string> options, bool canGoBack = false, bool optional = false)
         {
             for (int i = 0; i < options.Count(); i++)
             {
@@ -19,6 +19,11 @@ namespace MovieSprint.Helpers
             }
 
             string userInput = Console.ReadLine();
+
+            if (string.IsNullOrEmpty(userInput) && optional)
+            {
+                return -1;
+            }
 
             try
             {

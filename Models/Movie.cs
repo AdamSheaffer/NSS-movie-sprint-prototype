@@ -12,6 +12,7 @@ namespace MovieSprint.Models
         public List<CrewMember> Crew { get; set; } = new List<CrewMember>();
         public List<Producer> ExecutiveProducers { get; set; } = new List<Producer>();
         public List<Location> FilmingLocations { get; set; } = new List<Location>();
+        public List<ScheduleItem> Shoots { get; set; } = new List<ScheduleItem>();
         public decimal Budget { get; set; } = 1_000_000;
 
         public decimal CalculateExpenses()

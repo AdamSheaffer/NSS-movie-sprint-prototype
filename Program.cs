@@ -49,6 +49,10 @@ namespace MovieSprint
                         Console.Clear();
                         LocationService.ShowLocationMenu(movie);
                         break;
+                    case 3:
+                        Console.Clear();
+                        ScheduleService.ShowScheduleMenu(movie);
+                        break;
                     case 4:
                         Console.Clear();
                         ProducerService.AddProducer(movie);

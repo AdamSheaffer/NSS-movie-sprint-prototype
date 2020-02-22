@@ -26,6 +26,10 @@ namespace MovieSprint.Services
                 report.AddLineItem(group.Key, crewGroup);
             }
 
+            List<IExpenseItem> shoots = new List<IExpenseItem>();
+            shoots.AddRange(movie.Shoots);
+            report.AddLineItem("Filming Locations", shoots);
+
             Console.WriteLine(report.GetBreakdown());
 
             Console.WriteLine("\nPress <Enter> to return to main menu");
