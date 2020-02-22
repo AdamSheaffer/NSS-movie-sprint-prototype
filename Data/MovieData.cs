@@ -112,5 +112,22 @@ namespace MovieSprint.Data
                 },
             };
         }
+
+        public static List<Location> StartingLocations()
+        {
+            return new List<Location>
+            {
+                new Location
+                {
+                    Name = "Nashville Software School",
+                        DailyCost = 250
+                },
+                new Location
+                {
+                    Name = "Waffle House",
+                        DailyCost = 700
+                }
+            };
+        }
     }
 }

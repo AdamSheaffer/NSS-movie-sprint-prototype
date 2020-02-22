@@ -32,6 +32,14 @@ namespace MovieSprint.Services
                     Console.Clear();
                     ShowCrew(movie);
                     break;
+                case 1:
+                    Console.Clear();
+                    HireCrewMember(movie);
+                    break;
+                case 2:
+                    Console.Clear();
+                    FireCrewMember(movie);
+                    break;
                 default:
                     break;
             }
@@ -73,6 +81,67 @@ namespace MovieSprint.Services
 
                 Console.Clear();
             }
+        }
+
+        private static void HireCrewMember(Movie movie)
+        {
+            Console.Write("Name: ");
+            string name = Console.ReadLine();
+
+            Console.Write("Title: ");
+            string title = Console.ReadLine();
+
+            Console.Write("Cost: ");
+            string costInput = Console.ReadLine();
+
+            try
+            {
+                decimal cost = decimal.Parse(costInput);
+
+                CrewMember newMember = new CrewMember
+                {
+                    Name = name,
+                    Title = title,
+                    Expense = cost
+                };
+
+                bool canAfford = movie.CanAfford(newMember);
+
+                if (!canAfford)
+                {
+                    Console.Clear();
+                    Console.WriteLine("Budget cannot afford this crew member");
+                    return;
+                }
+
+                movie.Crew.Add(newMember);
+
+            }
+            catch (FormatException)
+            {
+                Console.Clear();
+                Console.WriteLine("Invalid dollar amount");
+                HireCrewMember(movie);
+            }
+        }
+
+        private static void FireCrewMember(Movie movie)
+        {
+            IEnumerable<string> options = movie.Crew.Select(cm => cm.Name);
+
+            int selection = MenuHelper.GetMenuSelection(options, true);
+
+            bool goBack = selection == options.Count();
+
+            if (goBack)
+            {
+                Console.Clear();
+                return;
+            }
+
+            movie.Crew.RemoveAt(selection);
+
+            Console.Clear();
         }
     }
 }

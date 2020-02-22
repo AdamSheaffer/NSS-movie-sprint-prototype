@@ -16,6 +16,7 @@ namespace MovieSprint
                 Title = "Hack & Slash",
                 Cast = MovieData.StartingCast(),
                 Crew = MovieData.StartingCrew(),
+                FilmingLocations = MovieData.StartingLocations()
             };
 
             while (true)
@@ -43,6 +44,10 @@ namespace MovieSprint
                     case 1:
                         Console.Clear();
                         CrewService.ShowCrewMenu(movie);
+                        break;
+                    case 2:
+                        Console.Clear();
+                        LocationService.ShowLocationMenu(movie);
                         break;
                     case 4:
                         Console.Clear();
