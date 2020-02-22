@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using MovieSprint.Data;
 using MovieSprint.Helpers;
 using MovieSprint.Models;
@@ -19,9 +20,10 @@ namespace MovieSprint
                 FilmingLocations = MovieData.StartingLocations()
             };
 
+            PrintWelcome(movie);
+
             while (true)
             {
-                PrintWelcome(movie);
 
                 string[] mainMenuOptions = {
                     "Manage Cast",
@@ -72,7 +74,23 @@ namespace MovieSprint
         static void PrintWelcome(Movie movie)
         {
             Console.WriteLine(movie.Title);
+            Console.WriteLine("-------------");
+            Console.WriteLine("Starring:");
+
+            movie.Cast.OrderByDescending(c => c.Expense)
+                .Take(2)
+                .ToList()
+                .ForEach(c => Console.WriteLine("-- " + c.Name));
+
             Console.WriteLine();
+            if (movie.ExecutiveProducers.Count > 0)
+            {
+                Console.WriteLine("Produced By:");
+                movie.ExecutiveProducers.ForEach(p => Console.WriteLine("-- " + p.Name));
+
+                Console.WriteLine();
+            }
+
         }
     }
 }
