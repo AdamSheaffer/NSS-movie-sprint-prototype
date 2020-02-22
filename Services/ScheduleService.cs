@@ -28,6 +28,8 @@ namespace MovieSprint.Services
             switch (selection)
             {
                 case 0:
+                    Console.Clear();
+                    ShowSchedule(movie);
                     break;
                 case 1:
                     Console.Clear();
@@ -36,6 +38,25 @@ namespace MovieSprint.Services
                 default:
                     break;
             }
+        }
+
+        private static void ShowSchedule(Movie movie)
+        {
+            movie.Shoots
+                .OrderBy(s => s.StartDate)
+                .ToList()
+                .ForEach(s =>
+                {
+                    Console.WriteLine(s.Name);
+                    Console.WriteLine($"{s.StartDate.ToString("MMMM dd")} - {s.EndDate.ToString("MMMM dd")}");
+                    Console.WriteLine(s.FilmingLocation.Name);
+                    s.Cast.ForEach(cm => Console.WriteLine("-- " + cm.Name));
+                    Console.WriteLine();
+                });
+
+            Console.WriteLine("Press <Enter> to return to the main menu");
+            Console.ReadLine();
+            Console.Clear();
         }
 
         private static void AddShoot(Movie movie)
