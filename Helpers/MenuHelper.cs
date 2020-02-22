@@ -35,7 +35,7 @@ namespace MovieSprint.Helpers
                     Console.Clear();
                     Console.WriteLine("Invalid Selection");
                     Console.WriteLine();
-                    return GetMenuSelection(options, canGoBack);
+                    return GetMenuSelection(options, canGoBack, optional);
                 }
 
                 return selection - 1;
@@ -45,7 +45,7 @@ namespace MovieSprint.Helpers
                 Console.Clear();
                 Console.WriteLine("Invalid Selection");
                 Console.WriteLine();
-                return GetMenuSelection(options, canGoBack);
+                return GetMenuSelection(options, canGoBack, optional);
             }
         }
     }
