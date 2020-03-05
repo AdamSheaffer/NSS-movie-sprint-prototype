@@ -16,6 +16,7 @@ Most of the little things in the budget have already been handled. The only thin
   1. Manage Crew
   1. Manage Locations
   1. Schedule
+  1. Show Producers
   1. Add Producer
   1. Expense Report
 
@@ -41,7 +42,7 @@ Most of the little things in the budget have already been handled. The only thin
 
 - When the user selects `Manage Cast` from the main menu and then selects `Search by Name`, they should be prompted to type in the name of a cast member. They should then be shown a list of cast members with names and pay whose name matches the user's search. The search should not be case sensitive. The user should then be prompted to hit any key to be taken back to the main menu.
 
-- When the user selects `Manage Cast` from the main menu and then selects `Show Cast`, the resulting list should be paginated with 5 records per page. The user should be able to hit the up and down arrow keys to page through the results. Hitting `Enter` should return to the main menu.
+- When the user selects `Manage Cast` from the main menu and then selects `Show Cast`, the resulting list should be paginated with 5 records per page. The user should be able to hit the left and right arrow keys to page through the results. Hitting `Enter` should return to the main menu.
 
 - When the user selects `Expense Report`, the following information should be displayed:
 
@@ -69,7 +70,9 @@ Most of the little things in the budget have already been handled. The only thin
 
 - When the user selects the `Manage Crew` option from the main menu and then selects `Fire a Crew Member`, they should be shown a numbered list of all crew members, along with an option to `Go Back` which takes them back to the main menu. If the user chooses the number of a crew member, they should be removed from the crew and the user should be taken back to the main menu.
 
-- When the user selects `Manage Crew` from the main menu and then selects `Show Crew`, the resulting list should be paginated with 5 records per page. The user should be able to hit the up and down arrow keys to page through the results. Hitting `Enter` should return to the main menu.
+- When the user selects `Manage Crew` from the main menu and then selects `Show Crew`, the resulting list should be paginated with 5 records per page. The user should be able to hit the left and right arrow keys to page through the results. Hitting `Enter` should return to the main menu.
+
+- When the user selects `Show Producers` from the main menu they should be shown a paginated list of all producers. The paginated list should have 5 records per page. The user should be able to hit the left and right arrow keys to page through the results. Hitting `Enter` should return to the main menu.
 
 - When the user selects `Manage Locations` from the main menu, they should be shown another menu with the following options:
 
@@ -81,7 +84,9 @@ Most of the little things in the budget have already been handled. The only thin
 
 - When the user selects `Manage Locations` from the main menu and then selects `Show Locations`, they should be shown a list of all filming locations. The user should then be prompted to hit `Enter` to return to the main menu.
 
-- When the user selects `Manage Locations` from the main menu and then selects `Add a Location`, they should be prompted to enter the name of the location along with the cost of shooting there for one day. The location should then be added to the movie's list of shooting locations. **NOTE:** _The cost of locations does not get added to budget until it gets added to a schedule (later story)_
+- When the user selects `Manage Locations` from the main menu and then selects `Show Locations`, the resulting list should be paginated with 5 records per page. The user should be able to hit the left and right arrow keys to page through the results. Hitting `Enter` should return to the main menu.
+
+- When the user selects `Manage Locations` from the main menu and then selects `Add a Location`, they should be prompted to enter the name of the location along with the cost of shooting there for one day. The location should then be added to the movie's list of shooting locations. **NOTE:** _The cost of locations does not get added to budget until it gets added to the schedule (later story)_
 
 - When the user selects `Schedule` from the main menu, they should be shown another menu with the following options:
 
@@ -102,3 +107,5 @@ Most of the little things in the budget have already been handled. The only thin
 - When the user selects `Manage Cast` from the main menu and then `Search by Name`, the results from their search should also include the cast members' schedule.
 
 - When the user selects `Schedule` from the main menu and then `Show Schdule`, they should see a list of all scheduled shoots. Each item should show the name of the scene, the location of the shoot, the start and end dates of the shoot, and the cast members on the call sheet.
+
+- When the user selects `Schedule` from the main menu and then selects `Show Schedule`, the resulting list should be paginated with 5 records per page. The user should be able to hit the left and right arrow keys to page through the results. Hitting `Enter` should return to the main menu.
