@@ -108,4 +108,4 @@ Most of the little things in the budget have already been handled. The only thin
 
 - When the user selects `Schedule` from the main menu and then `Show Schdule`, they should see a list of all scheduled shoots. Each item should show the name of the scene, the location of the shoot, the start and end dates of the shoot, and the cast members on the call sheet.
 
-- When the user selects `Schedule` from the main menu and then selects `Show Schedule`, the resulting list should be paginated with 5 records per page. The user should be able to hit the left and right arrow keys to page through the results. Hitting `Enter` should return to the main menu.
+- When the user selects `Schedule` from the main menu and then selects `Show Schedule`, the resulting list should be paginated with 1 record per page. The user should be able to hit the left and right arrow keys to page through the results. Hitting `Enter` should return to the main menu.

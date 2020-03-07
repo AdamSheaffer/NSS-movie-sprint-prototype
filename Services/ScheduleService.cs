@@ -42,10 +42,13 @@ namespace MovieSprint.Services
 
         private static void ShowSchedule(Movie movie)
         {
-            movie.Shoots
-                .OrderBy(s => s.StartDate)
-                .ToList()
-                .ForEach(s =>
+            IEnumerable<ScheduleItem> shoots = movie.Shoots.OrderBy(s => s.StartDate);
+            Pager<ScheduleItem> pager = new Pager<ScheduleItem>(shoots, 1);
+
+            while (true)
+            {
+
+                pager.GetPage().ToList().ForEach(s =>
                 {
                     Console.WriteLine(s.Name);
                     Console.WriteLine($"{s.StartDate.ToString("MMMM dd")} - {s.EndDate.ToString("MMMM dd")}");
@@ -54,9 +57,31 @@ namespace MovieSprint.Services
                     Console.WriteLine();
                 });
 
-            Console.WriteLine("Press <Enter> to return to the main menu");
-            Console.ReadLine();
-            Console.Clear();
+                Console.WriteLine(pager.Description);
+                Console.WriteLine("Press <p> to go to previous page, <n> to go to next page, or <Enter> to return to main menu");
+
+                string input = Console.ReadLine();
+
+                if (string.IsNullOrEmpty(input))
+                {
+                    Console.Clear();
+                    break;
+                }
+
+                switch (input)
+                {
+                    case "p":
+                        pager.CurrentPage = pager.IsFirstPage ? pager.CurrentPage : pager.CurrentPage - 1;
+                        break;
+                    case "n":
+                        pager.CurrentPage = pager.IsLastPage ? pager.CurrentPage : pager.CurrentPage + 1;
+                        break;
+                    default:
+                        break;
+                }
+
+                Console.Clear();
+            }
         }
 
         private static void AddShoot(Movie movie)

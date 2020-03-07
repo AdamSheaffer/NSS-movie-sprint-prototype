@@ -1,10 +1,48 @@
 using System;
+using System.Linq;
+using MovieSprint.Helpers;
 using MovieSprint.Models;
 
 namespace MovieSprint.Services
 {
     public static class ProducerService
     {
+        public static void ShowProducer(Movie movie)
+        {
+            Pager<Producer> pager = new Pager<Producer>(movie.ExecutiveProducers);
+
+            while (true)
+            {
+
+                pager.GetPage().ToList().ForEach(p => Console.WriteLine($"{p.Name}: {p.Contribution.ToString("C")}"));
+
+                Console.WriteLine(pager.Description);
+                Console.WriteLine("Press <p> to go to previous page, <n> to go to next page, or <Enter> to return to main menu");
+
+                string input = Console.ReadLine();
+
+                if (string.IsNullOrEmpty(input))
+                {
+                    Console.Clear();
+                    break;
+                }
+
+                switch (input)
+                {
+                    case "p":
+                        pager.CurrentPage = pager.IsFirstPage ? pager.CurrentPage : pager.CurrentPage - 1;
+                        break;
+                    case "n":
+                        pager.CurrentPage = pager.IsLastPage ? pager.CurrentPage : pager.CurrentPage + 1;
+                        break;
+                    default:
+                        break;
+                }
+
+                Console.Clear();
+            }
+        }
+
         public static void AddProducer(Movie movie)
         {
             Console.Write("Producer Name: ");

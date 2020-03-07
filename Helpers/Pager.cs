@@ -25,6 +25,12 @@ namespace MovieSprint.Helpers
             Items = items;
         }
 
+        public Pager(IEnumerable<T> items, int itemsPerPage)
+        {
+            Items = items;
+            ItemsPerPage = itemsPerPage;
+        }
+
         public IEnumerable<T> GetPage()
         {
             return Items.Skip(ItemsOffset).Take(ItemsPerPage);

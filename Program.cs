@@ -15,9 +15,10 @@ namespace MovieSprint
             Movie movie = new Movie
             {
                 Title = "Hack & Slash",
-                Cast = MovieData.StartingCast(),
-                Crew = MovieData.StartingCrew(),
-                FilmingLocations = MovieData.StartingLocations()
+                Cast = MovieData.StartingCast,
+                Crew = MovieData.StartingCrew,
+                FilmingLocations = MovieData.StartingLocations,
+                Shoots = MovieData.StartingScheduleItems
             };
 
             PrintWelcome(movie);
@@ -31,6 +32,7 @@ namespace MovieSprint
                     "Manage Locations",
                     "Schedule",
                     "Add Producer",
+                    "Show Producers",
                     "Expense Report",
                     "Exit"
                 };
@@ -61,9 +63,13 @@ namespace MovieSprint
                         break;
                     case 5:
                         Console.Clear();
-                        ReportService.ShowReport(movie);
+                        ProducerService.ShowProducer(movie);
                         break;
                     case 6:
+                        Console.Clear();
+                        ReportService.ShowReport(movie);
+                        break;
+                    case 7:
                         return;
                     default:
                         break;
